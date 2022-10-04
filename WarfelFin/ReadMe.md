@@ -2,7 +2,7 @@ Cloning the repository
 
 --> Clone the repository using the command below :
 
-git clone 
+git clone https://github.com/lancewarfel/ForumWesite.git
 --> Move into the directory where we have the project files :
 
 cd WarfelFin
