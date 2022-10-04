@@ -1,0 +1,139 @@
+<div class="topics">
+    <div class="topics__header">
+      <h2>Browse Post Topics</h2>
+    </div>
+    <ul class="topics__list">
+      <li>
+        <a href="{% url 'home' %}" class="active">All <span>{{topics.count}}</span></a> <!--Showing less than needed-->
+      </li>
+
+      {% for topic in topics  %}
+      <li>
+        <a href="{% url 'home' %}?q={{topic.name}}">{{topic.name}} <span>{{topic.post_set.all.count}}</span></a>
+      </li>
+      {% endfor %}
+
+    </ul>
+    <a class="btn btn--link" href="{% url 'topics' %}">
+      More
+      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+        <title>chevron-down</title>
+        <path d="M16 21l-13-13h-3l16 16 16-16h-3l-13 13z"></path>
+      </svg>
+    </a>
+
+
+
+
+
+
+    <!-- ALL IS FOR CALENDAR -->
+
+
+
+
+
+
+    <br><br><br><br>
+
+    <style>
+      /* .dropbtn {
+        background-color: #3498DB;
+        color: white;
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+      }
+
+      .dropbtn:hover, .dropbtn:focus {
+        background-color: #2980B9;
+      } */
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: var(--color-main);
+        max-width: 130px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+      }
+
+      .dropdown-content a {
+        color: var(--color-main);
+        padding: 10px 10px;
+        text-decoration: none;
+        display: block;
+      }
+
+      .dropdown-content a:hover {background-color: var(--color-dark);}
+
+      .show {display:block;}
+
+      .dropbtn--pill:hover {
+        opacity: 0.9;
+      }
+
+      .dropbtn > svg {
+        fill: currentColor;
+        width: 1.6rem;
+        height: 1.6rem;
+      }
+
+      .dropbtn--pill {
+        border-radius: 10rem;
+        font-size: 1.4rem;
+        font-weight: 700;
+        padding: 6px 2.5rem;
+        color: var(--color-main);
+        background: transparent;
+        border: 2px solid var(--color-main);
+      }
+
+      .dropdown-content {
+        border-radius: 8rem;
+        font-size: 1.4rem;
+        font-weight: 700;
+        padding: 6px 2.5rem;
+        color: var(--color-main);
+        background: transparent;
+        border: 2px solid var(--color-main);
+      }
+    </style>
+
+    <script>
+      function myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+      }
+
+      // Close the dropdown menu if the user clicks outside of it
+      window.onclick = function(event) {
+        if (!event.target.matches('.dropbtn--pill')) {
+          var dropdowns = document.getElementsByClassName("dropdown-content");
+          var i;
+          for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+              openDropdown.classList.remove('show');
+            }
+          }
+        }
+      } 
+    </script>
+
+    <div class="dropdown">
+      <button onclick="myFunction()" class="dropbtn--pill">Dropdown</button>
+      <div id="myDropdown" class="dropdown-content">
+        <a href="https://calendar.google.com/calendar" target="_blank">Calendar</a>
+      </div>
+    </div> 
+
+
+
+
+    <!-- END CALENDAR -->
+
+
+
+
+  </div>
